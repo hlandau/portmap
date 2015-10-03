@@ -1,7 +1,7 @@
 NAT Port Mapping Library for Go
 ===============================
 
-[![GoDoc](https://godoc.org/github.com/hlandau/portmap?status.svg)](https://godoc.org/github.com/hlandau/portmap)
+[![GoDoc](https://godoc.org/github.com/hlandau/portmap?status.svg)](https://godoc.org/github.com/hlandau/portmap) [![Build Status](https://travis-ci.org/hlandau/portmap.svg?branch=master)](https://travis-ci.org/hlandau/portmap)
 
 Example:
 
