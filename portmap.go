@@ -1,9 +1,8 @@
 // Package portmap provides a utility for the automatic mapping of TCP and UDP
 // ports via NAT-PMP or UPnP IGDv1.
 //
-// In order to map a TCP or UDP port, just call CreatePortMapping. Negotiation
-// via NAT-PMP and, if that fails, via UPnP will be attempted in the
-// background.
+// In order to map a TCP or UDP port, just call New. Negotiation via NAT-PMP
+// and, if that fails, via UPnP, will be attempted in the background.
 //
 // You can interrogate the returned Mapping object to determine when the
 // mapping has been successfully created, and to cancel the mapping.
