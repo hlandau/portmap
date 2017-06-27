@@ -7,7 +7,7 @@ import "github.com/hlandau/portmap/upnp"
 import "github.com/hlandau/portmap/natpmp"
 import "github.com/hlandau/xlog"
 
-var log, Log = xlog.New("portmap")
+var log, Log = xlog.NewQuiet("portmap")
 
 type mode int
 
@@ -37,7 +37,7 @@ func (m *mapping) portMappingLoop(gwa []net.IP) {
 				if len(svc) > 0 {
 					// NAT-PMP failed and UPnP is available, so switch to it
 					mode = modeUPnP
-          log.Debug("NAT-PMP failed and UPnP is available, switching to UPnP")
+					log.Debug("NAT-PMP failed and UPnP is available, switching to UPnP")
 					continue
 				}
 			}
@@ -46,7 +46,7 @@ func (m *mapping) portMappingLoop(gwa []net.IP) {
 			svcs := ssdp.GetServicesByType(upnpWANIPConnectionURN)
 			if len(svcs) == 0 {
 				mode = modeNATPMP
-        log.Debug("UPnP not available, switching to NAT-PMP")
+				log.Debug("UPnP not available, switching to NAT-PMP")
 				continue
 			}
 
@@ -134,7 +134,7 @@ func (m *mapping) tryNATPMPGW(gw net.IP, destroy bool) bool {
 	externalPort, actualLifetime, err = natpmp.Map(gw,
 		natpmp.Protocol(m.cfg.Protocol), m.cfg.InternalPort, m.cfg.ExternalPort, preferredLifetime)
 	if err != nil {
-    log.Infof("NAT-PMP failed: %v", err)
+		log.Infof("NAT-PMP failed: %v", err)
 		return false
 	}
 

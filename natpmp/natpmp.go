@@ -42,8 +42,8 @@ const version0 byte = 0
 
 var backoff = net.Backoff{
 	MaxTries:           9,
-	InitialDelay:       250*time.Millisecond,
-	MaxDelay:           64000*time.Millisecond, // InitialDelay*8
+	InitialDelay:       250 * time.Millisecond,
+	MaxDelay:           64000 * time.Millisecond, // InitialDelay*8
 	MaxDelayAfterTries: 8,
 }
 
